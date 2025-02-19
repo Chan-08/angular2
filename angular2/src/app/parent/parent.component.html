@@ -1,2 +1,6 @@
-<app-child [parentMessage]="'Hello from Parent!'" (messageEvent)="handleChildMessage($event)"></app-child>
+<input type="text" [(ngModel)]="parentMessage" placeholder="Enter message for child">
+<button (click)="sendDataToChild()">Send to Child</button>  
+
+<app-child [message]="messageToChild" (messageEvent)="handleChildMessage($event)"></app-child>
+
 <p>Message from Child: {{ receivedMessage }}</p>

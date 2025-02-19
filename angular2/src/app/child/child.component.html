@@ -1,2 +1,4 @@
-<h3>Message from Parent: {{ parentMessage }}</h3>
-<button (click)="sendMessage()">Send Message to Parent</button>
+<h3>Message from Parent: {{ message }}</h3>
+
+<input type="text" [(ngModel)]="childMessage" placeholder="Enter message for parent">
+<button (click)="sendMessage()">Send to Parent</button>
