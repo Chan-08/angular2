@@ -1,12 +1,46 @@
-<h2>Array Methods in Angular</h2>
+<div class="array">
+    <h2>Array Methods in Angular</h2>
 
-<p><strong>Original Numbers:</strong> {{ numbers }}</p>
-<p><strong>Doubled Numbers (map):</strong> {{ doubledNumbers }}</p>
-
-<p><strong>Found User (find):</strong> {{ foundUser?.name }}</p>
-
-<p><strong>Even Numbers (filter):</strong> {{ evenNumbers }}</p>
-
-<p><strong>Includes 'banana':</strong> {{ hasBanana }}</p>
-
-<p><strong>Has Even Number (some):</strong> {{ hasEvenNumber }}</p>
+    <!-- Map -->
+    <h3>Map Example</h3>
+    <p><strong>Before:</strong> {{ numbers }}</p>
+    <button (click)="applyMap()">Apply Map</button>
+    <p><strong>After:</strong> {{ mappedNumbers }}</p>
+    
+    <hr>
+    
+    <!-- Find -->
+    <h3>Find Example</h3>
+    <p><strong>Users:</strong> {{ users | json }}</p>
+    <input type="text" [(ngModel)]="findInput" placeholder="Enter name to find" />
+    <button (click)="applyFind()">Apply Find</button>
+    <p><strong>Result:</strong> {{ foundUser }}</p>
+    
+    <hr>
+    
+    <!-- Filter -->
+    <h3>Filter Example</h3>
+    <p><strong>Before:</strong> {{ numbers }}</p>
+    <input type="number" [(ngModel)]="filterInput" placeholder="Enter divisor (e.g., 2)" />
+    <button (click)="applyFilter()">Apply Filter</button>
+    <p><strong>After:</strong> {{ filteredNumbers }}</p>
+    
+    <hr>
+    
+    <!-- Includes -->
+    <h3>Includes Example</h3>
+    <p><strong>Fruits:</strong> {{ fruits }}</p>
+    <input type="text" [(ngModel)]="includesInput" placeholder="Enter fruit name" />
+    <button (click)="applyIncludes()">Apply Includes</button>
+    <p><strong>Result:</strong> {{ includesResult }}</p>
+    
+    <hr>
+    
+    <!-- Some -->
+    <h3>Some Example</h3>
+    <p><strong>Numbers:</strong> {{ numbers }}</p>
+    <input type="number" [(ngModel)]="someInput" placeholder="Enter divisor (e.g., 2)" />
+    <button (click)="applySome()">Apply Some</button>
+    <p><strong>Result:</strong> {{ someResult }}</p>
+    
+</div>

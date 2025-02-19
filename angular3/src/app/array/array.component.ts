@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-array',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './array.component.html',
   styleUrls: ['./array.component.css']
 })
@@ -15,18 +18,47 @@ export class ArrayComponent {
   ];
   fruits: string[] = ['apple', 'banana', 'orange', 'grape'];
 
-  // Using map to double the numbers
-  doubledNumbers = this.numbers.map(num => num * 2);
+  // User inputs
+  findInput: string = '';
+  filterInput: number | null = null;
+  includesInput: string = '';
+  someInput: number | null = null;
 
-  // Using find to get a user by ID
-  foundUser = this.users.find(user => user.id === 2);
+  // Results
+  mappedNumbers: number[] = [];
+  foundUser: string = '';
+  filteredNumbers: number[] = [];
+  includesResult: string = '';
+  someResult: string = '';
 
-  // Using filter to get only even numbers
-  evenNumbers = this.numbers.filter(num => num % 2 === 0);
+  applyMap() {
+    this.mappedNumbers = this.numbers.map(num => num * 2);
+  }
 
-  // Using includes to check if 'banana' is in the fruits array
-  hasBanana = this.fruits.includes('banana');
+  applyFind() {
+    const user = this.users.find(user => user.name.toLowerCase() === this.findInput.toLowerCase());
+    this.foundUser = user ? `User Found: ${user.name}` : 'User Not Found';
+  }
 
-  // Using some to check if there's any even number
-  hasEvenNumber = this.numbers.some(num => num % 2 === 0);
+  applyFilter() {
+    if (this.filterInput !== null) {
+      this.filteredNumbers = this.numbers.filter(num => num % this.filterInput! === 0);
+    }
+  }
+
+  applyIncludes() {
+    this.includesResult = this.fruits.includes(this.includesInput.toLowerCase())
+      ? `'${this.includesInput}' is in the list`
+      : `'${this.includesInput}' is not in the list`;
+  }
+
+  applySome() {
+    if (this.someInput !== null) {
+      const matchingNumbers = this.numbers.filter(num => num % this.someInput! === 0);
+      this.someResult = matchingNumbers.length > 0
+        ? `Numbers divisible by ${this.someInput}: ${matchingNumbers.join(', ')}`
+        : `No numbers divisible by ${this.someInput}`;
+    }
+  }
+  
 }
