@@ -11,11 +11,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class ArrayComponent {
   numbers: number[] = [1, 2, 3, 4, 5, 6];
+  
+  
   users = [
     { id: 1, name: 'Alice' },
     { id: 2, name: 'Bob' },
     { id: 3, name: 'Charlie' }
   ];
+
+
   fruits: string[] = ['apple', 'banana', 'orange', 'grape'];
 
   // User inputs
@@ -31,15 +35,18 @@ export class ArrayComponent {
   includesResult: string = '';
   someResult: string = '';
 
+
   applyMap() {
     this.mappedNumbers = this.numbers.map(num => num * 2);
   }
+
 
   applyFind() {
     const user = this.users.find(user => user.name.toLowerCase() === this.findInput.toLowerCase());
     this.foundUser = user ? `User Found: ${user.name}` : 'User Not Found';
   }
 
+  
   applyFilter() {
     if (this.filterInput !== null) {
       this.filteredNumbers = this.numbers.filter(num => num % this.filterInput! === 0);
