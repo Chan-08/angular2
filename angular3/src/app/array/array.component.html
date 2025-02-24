@@ -19,7 +19,7 @@
     
     <h3>Filter Example</h3>
     <p><strong>Before:</strong> {{ numbers }}</p>
-    <input type="number" [(ngModel)]="filterInput" placeholder="Enter divisor (e.g., 2)" />
+    <input type="number" [(ngModel)]="filterInput" placeholder="Enter divisor" />
     <button (click)="applyFilter()">Apply Filter</button>
     <p><strong>After:</strong> {{ filteredNumbers }}</p>
     
@@ -35,7 +35,7 @@
     
     <h3>Some Example</h3>
     <p><strong>Numbers:</strong> {{ numbers }}</p>
-    <input type="number" [(ngModel)]="someInput" placeholder="Enter divisor (e.g., 2)" />
+    <input type="number" [(ngModel)]="someInput" placeholder="Enter divisor " />
     <button (click)="applySome()">Apply Some</button>
     <p><strong>Result:</strong> {{ someResult }}</p>
     

@@ -10,15 +10,16 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./array.component.css']
 })
 export class ArrayComponent {
+  
+  
+  //Arrays
   numbers: number[] = [1, 2, 3, 4, 5, 6];
   
-  
   users = [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' },
-    { id: 3, name: 'Charlie' }
+    { id: 1, name: 'Chan' },
+    { id: 2, name: 'Mj' },
+    { id: 3, name: 'Jvd' }
   ];
-
 
   fruits: string[] = ['apple', 'banana', 'orange', 'grape'];
 
@@ -61,11 +62,11 @@ export class ArrayComponent {
 
   applySome() {
     if (this.someInput !== null) {
-      const matchingNumbers = this.numbers.filter(num => num % this.someInput! === 0);
-      this.someResult = matchingNumbers.length > 0
-        ? `Numbers divisible by ${this.someInput}: ${matchingNumbers.join(', ')}`
-        : `No numbers divisible by ${this.someInput}`;
+      this.someResult = this.numbers.some(num => num % this.someInput! === 0)
+        ? `At least one number is divisible by ${this.someInput}`
+        : `No numbers are divisible by ${this.someInput}`;
     }
   }
+  
   
 }
